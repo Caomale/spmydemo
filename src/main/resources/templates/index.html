@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html;charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link th:href="@{/js/jquery-2.0.3.min.js}" rel="stylesheet"/>
+    <title>主页</title>
+</head>
+<body>
+<h2>welcome my index!</h2>
+<p th:text="${user.id}"></p>
+<p th:text="${user.userName}"></p>
+<p th:text="${user.age}"></p>
+<p th:text="${user.telPhone}"></p>
+</body>
+</html>

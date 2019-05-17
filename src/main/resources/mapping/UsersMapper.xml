@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 指定工作空间，要与接口名相同，源代码没有去看，猜测应该是通过"这里的namespace.下边方法的id"来定位方法的 -->
+<mapper namespace="com.example.spmydemo.mapper.UsersDao">
+
+    <!-- insert user -->
+    <insert id = "insertUser" parameterType="com.example.spmydemo.entity.Users">
+        INSERT INTO USERS(ID,USERNAME,AGE,TELPHONE) VALUES(#{id},#{userName},#{age},#{telPhone});
+    </insert>
+
+    <!-- update user -->
+    <update id="updateUser" parameterType="com.example.spmydemo.entity.Users">
+        UPDATE USERS SET USERNAME=#{username} , TELPHONE=#{telPhone} , AGE = #{age} WHERE ID=#{id}
+    </update>
+
+    <!-- find user -->
+    <select id="selectUserById" parameterType="int" resultType="com.example.spmydemo.entity.Users">
+        SELECT ID,USERNAME,AGE,TELPHONE FROM USERS WHERE ID=#{0}
+    </select>
+    <select id="selectUserByUserName" parameterType="String" resultType="com.example.spmydemo.entity.Users">
+        SELECT ID,USERNAME,AGE,TELPHONE FROM USERS WHERE USERNAME=#{username}
+    </select>
+
+    <!-- delete user -->
+    <delete id="deleteById" parameterType="int">
+        DELETE FROM USERS WHERE ID=#{0}
+    </delete>
+</mapper>
